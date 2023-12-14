@@ -19,7 +19,6 @@ const { results } = await notion.databases.query({
         "property": "Date",
         "date": {
           "is_not_empty": true,
-          "before": today
         }
       },
     ]
@@ -36,7 +35,7 @@ const { results } = await notion.databases.query({
   const rawPomos = results.map(page => {
     return {
       "date": page.properties.Date.date.start,
-      "pomos": page.properties['time'].number
+      "time": page.properties['time'].number
     }
   })
 
